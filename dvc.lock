@@ -1,0 +1,66 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/Insurance/pipeline/stage_01_data_ingestion.py
+    deps:
+    - path: configs/config.yaml
+      md5: f8d37b7081c3439454e1d7c298888bd0
+      size: 1025
+    - path: src/Insurance/pipeline/stage_01_data_ingestion.py
+      md5: 0e836ddbdfa40f279c31fde7702ee419
+      size: 520
+    outs:
+    - path: artifacts/data_ingestion/complete_raw_data
+      md5: 44a838b2bbf3a3dcd58b35610f3134f3.dir
+      size: 57215
+      nfiles: 1
+    - path: artifacts/data_ingestion/test_data
+      md5: 98bfc907481e2379604cfd7195a44d12.dir
+      size: 11495
+      nfiles: 1
+    - path: artifacts/data_ingestion/train_data
+      md5: ffc622da7f207c7f434489511a13991d.dir
+      size: 45766
+      nfiles: 1
+  data_transformation:
+    cmd: python src/Insurance/pipeline/stage_02_data_transformation.py
+    deps:
+    - path: artifacts/data_ingestion/complete_raw_data
+      md5: 44a838b2bbf3a3dcd58b35610f3134f3.dir
+      size: 57215
+      nfiles: 1
+    - path: artifacts/data_ingestion/test_data
+      md5: 98bfc907481e2379604cfd7195a44d12.dir
+      size: 11495
+      nfiles: 1
+    - path: artifacts/data_ingestion/train_data
+      md5: ffc622da7f207c7f434489511a13991d.dir
+      size: 45766
+      nfiles: 1
+    - path: src/Insurance/pipeline/stage_02_data_transformation.py
+      md5: 3910174eb75b4deb1d17fb3d5f6e7a18
+      size: 530
+    outs:
+    - path: artifacts/data_transformation/train_data
+      md5: 8e5509b29821bf197625154743eec39e.dir
+      size: 90236
+      nfiles: 1
+  model_training:
+    cmd: python src/Insurance/pipeline/stage_03_model_training.py
+    deps:
+    - path: artifacts/data_transformation/test_data
+      md5: 944a294114161000cb15e134c7e36568.dir
+      size: 22455
+      nfiles: 1
+    - path: artifacts/data_transformation/train_data
+      md5: 8e5509b29821bf197625154743eec39e.dir
+      size: 90236
+      nfiles: 1
+    - path: src/Insurance/pipeline/stage_03_model_training.py
+      md5: 91b1da34e41680ca1eb4a473c6f31e71
+      size: 452
+    outs:
+    - path: artifacts/model_training/parameter_dir
+      md5: 12cb4b423dabbd9d6dc2fa9abd541ef0.dir
+      size: 943
+      nfiles: 1
