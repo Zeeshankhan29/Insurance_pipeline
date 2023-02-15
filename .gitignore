@@ -1,0 +1,4 @@
+.github/
+artifacts/
+Insurance.egg-info/
+.env

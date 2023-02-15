@@ -1,0 +1,1 @@
+from src.Insurance.entity.config_entity import * 

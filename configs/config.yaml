@@ -1,0 +1,34 @@
+artifacts_root: artifacts
+
+
+data_ingestion:
+  root_dir : artifacts/data_ingestion
+  source_URL : "https://raw.githubusercontent.com/Zeeshankhan29/ML_pipeline/master/Insurance_data.csv"
+  raw_data_dir: artifacts/data_ingestion
+  train_dir: artifacts/data_ingestion/train_data
+  test_dir: artifacts/data_ingestion/test_data
+  data_dir: artifacts/data_ingestion/complete_raw_data
+
+  
+
+
+
+data_transformation:
+  train_dir: artifacts/data_ingestion/train_data
+  test_dir: artifacts/data_ingestion/test_data
+  root_dir : artifacts/data_transformation
+  pickle_dir: artifacts/data_transformation/pickle
+  transformed_train_dir: artifacts/data_transformation/train_data
+  transformed_test_dir: artifacts/data_transformation/test_data
+  
+
+
+  
+
+model_training:
+  transformed_train_dir: artifacts/data_transformation/train_data
+  transformed_test_dir: artifacts/data_transformation/test_data
+  pickle_dir: artifacts/model_training/model_pickle
+  parameter_dir : artifacts/model_training/parameter_dir
+
+
