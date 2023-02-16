@@ -1,5 +1,5 @@
 from src.Insurance.utils import create_directories,read_yaml
-from src.Insurance.entity import DataIngestionConfig,DataTransformationConfig,ModelTrainingConfig
+from src.Insurance.entity import DataIngestionConfig,DataTransformationConfig,ModelTrainingConfig,ModelPusherConfig
 from src.Insurance.constants import CONFIG_FILE_PATH
 
 class Configuration:
@@ -60,5 +60,16 @@ class Configuration:
             parameter_dir=model_training_config.parameter_dir)
 
         return model_training
-            
     
+
+    def model_pusher_config(self):
+        model_pusher_config = self.config.model_pusher
+        create_directories([model_pusher_config.s3_bucket_pickle])
+
+        model_pusher =  ModelPusherConfig(
+             
+             pickle_dir=model_pusher_config.pickle_dir,
+             s3_bucket_pickle=model_pusher_config.s3_bucket_pickle
+                )
+        
+        return model_pusher

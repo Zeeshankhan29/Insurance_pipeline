@@ -8,4 +8,5 @@ ensure==1.0.2
 joblib
 pyYAML
 scikit-learn
+boto3
 -e .

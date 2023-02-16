@@ -28,3 +28,10 @@ class ModelTrainingConfig:
     tranformed_test_dir:Path
     pickle_dir :str
     parameter_dir:Path
+
+@dataclass(frozen=True)
+class ModelPusherConfig:
+    pickle_dir : Path
+    s3_bucket_pickle : Path
+
+    

@@ -32,3 +32,7 @@ model_training:
   parameter_dir : artifacts/model_training/parameter_dir
 
 
+model_pusher:
+  pickle_dir: artifacts/model_training/model_pickle
+  s3_bucket_pickle : artifacts/model_pusher/s3_bucket_pickle
+

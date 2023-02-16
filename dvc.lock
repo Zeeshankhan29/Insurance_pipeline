@@ -4,8 +4,8 @@ stages:
     cmd: python src/Insurance/pipeline/stage_01_data_ingestion.py
     deps:
     - path: configs/config.yaml
-      md5: f8d37b7081c3439454e1d7c298888bd0
-      size: 1025
+      md5: d870ab3b6008189511e841581c34c728
+      size: 1157
     - path: src/Insurance/pipeline/stage_01_data_ingestion.py
       md5: 0e836ddbdfa40f279c31fde7702ee419
       size: 520
@@ -61,6 +61,25 @@ stages:
       size: 452
     outs:
     - path: artifacts/model_training/parameter_dir
-      md5: 12cb4b423dabbd9d6dc2fa9abd541ef0.dir
-      size: 943
+      md5: ac2477998f8741f8ba9185773639aa21.dir
+      size: 941
       nfiles: 1
+  model_pusher:
+    cmd: python src/Insurance/pipeline/stage_04_model_pusher.py
+    deps:
+    - path: artifacts/model_training/model_pickle
+      md5: d3ca3ac6359ab3a6f18c380b1df3d546.dir
+      size: 2193298
+      nfiles: 1
+    - path: artifacts/model_training/parameter_dir
+      md5: ac2477998f8741f8ba9185773639aa21.dir
+      size: 941
+      nfiles: 1
+    - path: src/Insurance/pipeline/stage_03_model_training.py
+      md5: 91b1da34e41680ca1eb4a473c6f31e71
+      size: 452
+    outs:
+    - path: artifacts/model_pusher/s3_bucket_pickle
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0

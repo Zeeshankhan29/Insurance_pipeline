@@ -76,6 +76,11 @@ class DataTransformation:
         with open(pickle_file_path,'wb') as f:
             pickle.dump(pipeline,f) 
 
+        os.makedirs("prediction",exist_ok=True)
+        path = os.path.join('prediction','pipeline')
+        with open(path,'wb') as f:
+            pickle.dump(pipeline,f) 
+
         # Transform the data
         transformed_data = pipeline.transform(df)
 
