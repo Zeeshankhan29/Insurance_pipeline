@@ -11,12 +11,12 @@ We propose a machine learning-based solution to predict the insurance premiums f
 
 ## Our solution involves the following steps:
 
-Data collection and preprocessing
-Exploratory data analysis
-Feature engineering and selection
-Model selection and training
-Model evaluation and fine-tuning
-Deployment and inference
+Data collection and preprocessing       
+Exploratory data analysis       
+Feature engineering and selection       
+Model selection and training        
+Model evaluation and fine-tuning        
+Deployment and inference        
 Streamlit interface to interact
 
 We will use Python and various libraries such as NumPy, Pandas, Matplotlib, Scikit-learn for solutionn. We will also use GitHub to host our project and collaborate with team members.
