@@ -60,6 +60,6 @@ cd prediction --> streamlit run app.py
 
 ```
 
-![Example Image] (image.png)
+![ExampleImage] (image.png)
 
 
