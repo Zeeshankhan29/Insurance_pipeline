@@ -27,10 +27,10 @@ Our solution will not only benefit insurance companies but also the customers wh
 
 ## environment setup
 
-'''
+```
 conda create --name pipeline python=3.10 -y
 
-'''
+```
 
 ##  activate the environment
 
